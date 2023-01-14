@@ -36,3 +36,8 @@ echo "the first name is $2"
 echo $*
 echo $#
 
+
+#taking the input from the users
+read -p "enter the name" name
+echo -e "print $name"
+
