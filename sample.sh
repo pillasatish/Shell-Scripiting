@@ -14,4 +14,12 @@ b=abc
  
  echo $a #$a is printing the value of a
  echo $b
-echo $c
+
+ # Variables that are declared inside the script are Local Variable
+# variables that are declared as shell using exoprt are environment variables.
+
+# Always local varible as higher precedence than Envirment varaiables.
+
+Date=2023-01-14
+echo "today's data is $Date"
+
