@@ -50,7 +50,7 @@ echo -e "print $name"
 
 #sample function
 f() {
-    echo "today data $(data +%F)"
+    echo "today data $(date +%F)"
 }
 
 f
