@@ -20,6 +20,15 @@ b=abc
 
 # Always local varible as higher precedence than Envirment varaiables.
 
+# dyamic output
 Date=$(date +%F)
 echo "today's data is $Date"
+
+#Special varaibles:
+#$0 : prints the script name
+#$? : check the status of command 
+
+# through commanf line one can pass upto 9 variables
+echo "the name is $1"
+echo "the first name is $2"
 
