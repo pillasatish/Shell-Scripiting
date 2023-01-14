@@ -20,6 +20,6 @@ b=abc
 
 # Always local varible as higher precedence than Envirment varaiables.
 
-Date=2023-01-14
+Date=$(date +%F)
 echo "today's data is $Date"
 
