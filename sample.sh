@@ -32,4 +32,5 @@ echo "today's data is $Date"
 # through commanf line one can pass upto 9 variables
 echo "the name is $1"
 echo "the first name is $2"
+echo $*
 
