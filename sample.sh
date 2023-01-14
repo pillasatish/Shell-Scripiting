@@ -27,6 +27,7 @@ echo "today's data is $Date"
 #Special varaibles:
 #$0 : prints the script name
 #$? : check the status of command 
+#$* : prints all the varible declared
 
 # through commanf line one can pass upto 9 variables
 echo "the name is $1"
