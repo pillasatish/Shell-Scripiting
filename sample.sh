@@ -52,3 +52,5 @@ echo -e "print $name"
 f() {
     echo "today data $(data +%F)"
 }
+
+f
