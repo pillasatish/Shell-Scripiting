@@ -41,3 +41,14 @@ echo $#
 read -p "enter the name" name
 echo -e "print $name"
 
+# IN linux, 4 types of command are there:
+
+#1) Binaries (/bin,/sbin)
+#2) alias (creating shorcuts)
+#3) shell built (built in commands)
+#4) Functions wrapping the set of commands in a single command
+
+#sample function
+f() {
+    echo "today data $(data +%F)"
+}
