@@ -27,10 +27,19 @@ echo -n "Adding the common Useradd: "
 
 echo -n "swtich to roboshop and install the $COMPONENT: "
 curl -s -L -o /tmp/${COMPONENT}.zip $CATALOGUE_REPO_URL
+stat $?
+
+echo -n "cleanup:"
+cd /home/roboshop/ && rm -rf ${COMPONENT} &>> $LOGFILE
+stat $?
+
+echo -n "extrating the $COMPONENT: "
 cd /home/roboshop
 unzip /tmp/${COMPONENT}.zip
 mv ${COMPONENT}-main ${COMPONENT}
 cd /home/roboshop/${COMPONENT}
+stat $?
+
 
 echo -n "Insatlling the $COMPONENT"
 npm install &>> $LOGFILE
