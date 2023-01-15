@@ -2,7 +2,7 @@
 
 set -e #exit the code if any one of the below code is not executed
 
-source ./common.sh
+source components/common.sh
 
 # yum install nginx -y
 # systemctl enable nginx
