@@ -3,7 +3,7 @@
 set -e #exit the code if any one of the below code is not executed
 COMPONENT=catalogue
 LOGFILE="/tmp/$COMPONENT.log"
-CATALOGUE_REPO_URL="https://github.com/stans-robot-project/catalogue/archive/main.zip"
+
 
 source components/common.sh
 
@@ -26,7 +26,7 @@ echo -n "Adding the common Useradd: "
  stat $?
 
 echo -n "swtich to roboshop and install the $COMPONENT: "
-curl -s -L -o /tmp/${COMPONENT}.zip $CATALOGUE_REPO_URL
+curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
 stat $?
 
 echo -n "cleanup:"
