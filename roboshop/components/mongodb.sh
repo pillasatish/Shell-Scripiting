@@ -16,34 +16,33 @@ stat $?
 
 
 echo -n "Starting the $COMPONENT: "
-systemctl enable mongod &>> $LOGFILE
 systemctl start mongod &>> $LOGFILE
 stat $?
 
 #Update Listen IP address from 127.0.0.1 to 0.0.0.0 in the config file, so that MongoDB can be accessed by other services.
 
-echo -n "Updating the configuration file mongod.conf"
+echo -n "Updating the configuration file mongod.conf: "
 #Config file:  /etc/mongod.conf
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
 
-echo -n "restart the $COMPONENT"
+echo -n "restart the $COMPONENT: "
+systemctl enable mongod &>> $LOGFILE
 systemctl restart mongod &>> $LOGFILE
 stat $?
 
-echo -n "Downloading the $COMPONENT schema"
-
+echo -n "Downloading the $COMPONENT schema: "
 curl -s -L -o /tmp/mongodb.zip $COMPONENT_REPO_URL
 stat $?
 
 cd /tmp
-echo -n "Extract the schema"
+echo -n "Extract the schema: "
 unzip -o mongodb.zip &>> $LOGFILE
 stat $?
 
 
 cd mongodb-main
-echo -n "Injecting the schema"
+echo -n "Injecting the schema: "
 mongo < catalogue.js &>> $LOGFILE
 mongo < users.js &>> $LOGFILE
 stat $?
