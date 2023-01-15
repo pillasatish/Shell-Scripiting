@@ -22,7 +22,7 @@ stat $?
 #So to run the catalogue service we choose to run as a normal user and that user name should be more relevant to the project. Hence we will use `roboshop` as the username to run the service.
 
 echo -n "Adding the common Useradd: "
- useradd roboshop
+ id roboshop &>> $LOGFILE || useradd roboshop 
  stat $?
 
 echo -n "swtich to roboshop and install the $COMPONENT: "
