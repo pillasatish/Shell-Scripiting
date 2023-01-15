@@ -25,15 +25,15 @@ echo -n "Adding the common Useradd: "
  useradd roboshop
  stat $?
 
-echo -n "swtich to rpboshop and install the $COMPONENT: "
-$ curl -s -L -o /tmp/${catalogue}.zip $CATALOGUE_REPO_URL
-$ cd /home/roboshop
-$ unzip /tmp/${catalogue}.zip
-$ mv catalogue-main ${catalogue}
-$ cd /home/roboshop/${catalogue}
+echo -n "swtich to roboshop and install the $COMPONENT: "
+curl -s -L -o /tmp/${catalogue}.zip $CATALOGUE_REPO_URL
+cd /home/roboshop
+unzip /tmp/${catalogue}.zip
+mv catalogue-main ${catalogue}
+cd /home/roboshop/${catalogue}
 
 echo -n "Insatlling the $COMPONENT"
-$ npm install &>> $LOGFILE
+npm install &>> $LOGFILE
 stat $?
 
 
