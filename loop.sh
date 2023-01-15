@@ -12,4 +12,7 @@ case $ACTION in
         echo "er"
         exit 0
         ;;
+    *)
+        echo "valid option are stop and stop"
+        exit 1
 esac
