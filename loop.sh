@@ -5,7 +5,11 @@
 ACTION=$1
 case $ACTION in
     start)
-        echo "xy";
+        echo "xy"
+        exit 0
+        ;;
     stop)
         echo "er"
+        exit 0
+        ;;
 esac
