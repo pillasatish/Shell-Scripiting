@@ -38,7 +38,7 @@ rm -rf *
 stat $?
 
 echo -n "Extracting the $COMPONENT"
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip &>>$LOGFILE
 mv frontend-main/* .
 mv static/* .
 rm -rf frontend-main README.md
