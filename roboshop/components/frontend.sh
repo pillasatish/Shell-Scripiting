@@ -32,17 +32,17 @@ echo -n "Downloading $COMPONENT: "
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 stat $?
 
-echo -n "Clearing the old component"
+echo -n "Clearing the old content $COMPONENT: "
 cd /usr/share/nginx/html
 rm -rf *
 stat $?
 
-echo -n "Extracting the $COMPONENT"
+echo -n "Extracting the $COMPONENT: "
 unzip /tmp/frontend.zip &>>$LOGFILE
 mv frontend-main/* .
 mv static/* .
 rm -rf frontend-main README.md
 
-echo -n "Updating the proxy file $COMPONENT"
+echo -n "Updating the proxy file $COMPONENT: "
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
