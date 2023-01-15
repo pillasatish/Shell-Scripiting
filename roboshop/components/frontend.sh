@@ -4,7 +4,7 @@ set -e #exit the code if any one of the below code is not executed
 
 USER_ID=$(id -u)
 if [$USER_ID -ne 0] ; then
-    echo -e "\e[31m run as root user\e[0m"
+    echo -e "\e[31m run as root user \e[0m"
     exit 1
 fi
 
