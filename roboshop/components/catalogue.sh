@@ -36,7 +36,7 @@ stat $?
 echo -n "extrating the $COMPONENT: "
 cd /home/roboshop
 unzip /tmp/${COMPONENT}.zip &>> $LOGFILE
-mv ${COMPONENT}-main ${COMPONENT}
+mv ${COMPONENT}-main ${COMPONENT} && chown -R $APPUSER:$APPUSER $COMPONENT
 cd /home/roboshop/${COMPONENT}
 stat $?
 
