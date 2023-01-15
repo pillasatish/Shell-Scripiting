@@ -52,5 +52,32 @@ echo -e "print $name"
 f() {
     echo "today data $(date +%F)"
 }
-
+#call the function
 f
+# function call mutiple functions
+
+# Redirections
+
+# > output redirected to the file
+# >> output redirected without over-ridden
+# 2> captures only standard error
+
+# < taking input from the file
+
+
+# Exit code:
+#range is between 0:255
+#0:success
+#1-255: failure/parially failed
+
+# Loops and Conditions:
+# 1)IF 2) CASE
+
+# Syntax
+ACTION=$1
+case $ACTION in
+    start)
+        echo "xy";
+    stop)
+        echo "er"
+esac
