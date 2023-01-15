@@ -41,7 +41,7 @@ cd /home/roboshop/${COMPONENT}
 stat $?
 
 
-echo -n "Insatlling the $COMPONENT"
+echo -n "Insatlling the $COMPONENT: "
 npm install &>> $LOGFILE
 stat $?
 
