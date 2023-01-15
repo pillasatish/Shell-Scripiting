@@ -39,10 +39,13 @@ stat $?
 
 echo -n "Extracting the $COMPONENT: "
 unzip /tmp/frontend.zip &>>$LOGFILE
+stat $?
+
+echo -n "Updating the proxy file $COMPONENT: "
 mv frontend-main/* .
 mv static/* .
 rm -rf frontend-main README.md
-
-echo -n "Updating the proxy file $COMPONENT: "
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
+
+echo -e "_______________$COMPONENT is Completed_________________________________"
