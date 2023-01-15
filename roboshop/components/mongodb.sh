@@ -22,10 +22,10 @@ stat $?
 
 #Update Listen IP address from 127.0.0.1 to 0.0.0.0 in the config file, so that MongoDB can be accessed by other services.
 
-echo "Updating the configuration file"
-#Config file:   # vim /etc/mongod.conf
-#sudo vim /etc/mongod.conf
-#sed 
+echo "Updating the configuration file mongod.conf"
+#Config file:  /etc/mongod.conf
+sed -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+stat $?
 
 #systemctl restart mongod
 
