@@ -1,10 +1,20 @@
 #!/bin/bash
 
 set -e #exit the code if any one of the below code is not executed
+COMPONENT=frontend
+LOGFILE="/tmp/$COMPONENT.log"
+
 
 source components/common.sh
 
-# yum install nginx -y
+echo -n "Installing Nginx"
+yum install nginx -y &>> $LOGFILE
+if [ $? -eq 0] ; then
+    echo -e "\e[32m SUCCESS\e[0m"
+else
+    echo -e "\e[32m FAILURE\e[0m"
+
+fi
 # systemctl enable nginx
 # systemctl start nginx
 
