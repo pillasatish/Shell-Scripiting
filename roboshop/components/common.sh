@@ -16,6 +16,22 @@ else
 fi
 }
 
+MAVEN() {
+    echo -n "install maven: "
+    yum install maven -y &>> $LOGFILE
+
+     #calling user creation function
+    CREATE_USER
+
+    DOWNLAOD_AND_EXTRACT
+
+    mvn clean package &>> LOGFILE && mv target/$COMPONENT-1.0.jar $COMPONENT.jar
+
+    CONFIG_SERVICE
+
+    START_SERVICE
+}
+
 NODEJS() {
     echo -n "Downlaoding nodejs repo"
     #rm /etc/yum.repos.d/nodesource* &>> $LOGFILE
