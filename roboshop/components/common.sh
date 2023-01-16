@@ -21,7 +21,7 @@ NODEJS() {
     curl --silent --location https://rpm.nodesource.com/setup_16.x | bash &>> $LOGFILE
     stat $?
 
-    echo -n "Insatlling the nodejs: "
+    echo -n "Installing the nodejs: "
     yum install nodejs -y &>> $LOGFILE
     stat $?
 
