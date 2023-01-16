@@ -4,6 +4,7 @@
 COMPONENT=mysql
 LOGFILE="/tmp/$COMPONENT.log"
 APPUSER="roboshop"
+SCHEMA_URL="https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 
 
 source components/common.sh
@@ -41,7 +42,20 @@ if [ 0 -eq $? ]; then
     stat $?
 fi
 
+echo -n "Downlaod and install the Schema: "
+curl -s -L -o /tmp/mysql.zip $SCHEMA_URL
+stat $? 
 
+echo -n "Extracting the schema: "
+cd /tmp
+unzip -o mysql.zip  &>> $LOGFILE 
+stat $?
+
+echo -n "Injecting the schema: "
+cd mysql-main && mysql -u root -pRoboShop@1 <shipping.sql &>> $LOGFILE 
+stat $?
+
+echo -e " ____________________ \e[32m $COMPONENT Configuration is completed ____________________ \e[0m"
 
 
 
