@@ -80,7 +80,7 @@ DOWNLAOD_AND_EXTRACT() {
     unzip /tmp/${COMPONENT}.zip &>> $LOGFILE
     mv ${COMPONENT}-main ${COMPONENT} && chown -R $APPUSER:$APPUSER $COMPONENT
     cd ${COMPONENT}
-    npm install &>> $LOGFILE
+    #npm install &>> $LOGFILE
     stat $?
 }
 
