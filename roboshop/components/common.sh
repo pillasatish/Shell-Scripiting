@@ -18,8 +18,8 @@ fi
 
 NODEJS() {
     echo -n "Downlaoding nodejs repo"
-    rm /etc/yum.repos.d/nodesource*
-    yum update
+    rm /etc/yum.repos.d/nodesource* &>> $LOGFILE
+    yum update &>> $LOGFILE
     curl -sL https://rpm.nodesource.com/setup_14.x | bash &>> $LOGFILE
     stat $?
 
