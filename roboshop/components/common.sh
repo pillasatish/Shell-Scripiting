@@ -68,12 +68,12 @@ DOWNLAOD_AND_EXTRACT() {
 CONFIG_SERVICE(){
     echo -n "systemD file: "
     sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop-internal/' systemd.service
+    mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/catalogue.service
     stat $?
 }
 
 START_SERVICE() {
     echo -n "setup the service with systemctl: "
-    mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/catalogue.service
     systemctl daemon-reload &>> $LOGFILE
     systemctl start $COMPONENT &>> $LOGFILE
     systemctl enable $COMPONENT &>> $LOGFILE

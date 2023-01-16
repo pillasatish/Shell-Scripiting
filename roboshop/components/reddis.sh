@@ -25,6 +25,4 @@ stat $?
 
 echo -n "start the reddis database: "
 #Start Redis Database
-systemctl enable redis &>> $LOGFILE
-systemctl start redis &>> $LOGFILE
-stat $?
+START_SERVICE
