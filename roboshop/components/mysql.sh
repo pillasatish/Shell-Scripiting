@@ -33,5 +33,16 @@ if [ 0 -ne $? ]; then
     stat $?
 fi
 
+echo "show plugins" | mysql -uroot -pRoboShop@1 &>> $LOGFILE | grep "validate_password"
+if [ 0 -eq $? ]; then
+    echo "Uninstall the pluhin : "
+    echo "uninstall plugin validate_password;" > /tmp/password-valudate.sql 
+    mysql  --connect-expired-password -uroot -pRoboShop@1 </tmp/password-validate.sql &>> $LOGFILE
+    stat $?
+fi
+
+
+
+
 
 
