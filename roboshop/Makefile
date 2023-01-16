@@ -8,3 +8,5 @@ catalogue:
 	sh components/catalogue.sh
 reddis:
 	sh components/reddis.sh
+user:
+	sh components/user.sh
