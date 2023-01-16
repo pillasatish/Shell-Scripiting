@@ -18,7 +18,9 @@ fi
 
 NODEJS() {
     echo -n "Downlaoding nodejs repo"
-    curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>> $LOGFILE
+    rm /etc/yum.repos.d/nodesource*
+    yum update
+    curl -sL https://rpm.nodesource.com/setup_14.x | bash &>> $LOGFILE
     stat $?
 
     echo -n "Installing the nodejs: "
