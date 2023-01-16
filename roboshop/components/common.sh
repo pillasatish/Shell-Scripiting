@@ -18,7 +18,7 @@ fi
 
 NODEJS() {
     echo -n "Downlaoding nodejs repo"
-    curl --silent --location https://rpm.nodesource.com/setup_16.x | bash &>> $LOGFILE
+    curl -sL https://rpm.nodesource.com/setup_16.x | bash &>> $LOGFILE
     stat $?
 
     echo -n "Installing the nodejs: "
