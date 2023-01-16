@@ -23,7 +23,8 @@ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf
 stat $?
 
-
-#calling the START_SERVICE
-
-START_SERVICE
+echo -n "start the reddis database: "
+#Start Redis Database
+systemctl enable redis &>> $LOGFILE
+systemctl start redis &>> $LOGFILE
+stat $?
