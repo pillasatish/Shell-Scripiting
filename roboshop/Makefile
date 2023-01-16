@@ -10,5 +10,3 @@ reddis:
 	sh components/reddis.sh
 user:
 	sh components/user.sh
-cart:
-	sh components/cart.sh
