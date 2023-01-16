@@ -59,6 +59,8 @@ mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/catalogue.servi
 systemctl daemon-reload &>> $LOGFILE
 systemctl start catalogue &>> $LOGFILE
 systemctl enable catalogue &>> $LOGFILE
+stat $?
+
 
 
 
