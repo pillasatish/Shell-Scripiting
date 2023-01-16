@@ -18,7 +18,7 @@ fi
 
 NODEJS() {
     echo -n "Downlaoding nodejs repo"
-    curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash &>> $LOGFILE
+    curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>> $LOGFILE
     stat $?
 
     echo -n "Installing the nodejs: "
@@ -68,7 +68,7 @@ DOWNLAOD_AND_EXTRACT() {
 
 CONFIG_SERVICE(){
     echo -n "systemD file: "
-        sed -i -e 's/AMQPHOST/rabbit-mq.roboshop-internal/' -e 's/USERHOST/users.roboshop-internal/' -e 's/CARTHOST/cart.roboshop-internal/' -e 's/DBHOST/my-sql.roboshop-internal/' -e 's/CARTENDPOINT/cart.roboshop-internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop-internal/' -e 's/REDIS_ENDPOINT/redis.roboshop-internal/' -e 's/REDIS_ENDPOINT/redis.roboshop-internal/'  -e 's/MONGO_ENDPOINT/mongodb.roboshop-internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop-internal/' systemd.service
+    sed -i -e 's/AMQPHOST/rabbit-mq.roboshop-internal/' -e 's/USERHOST/users.roboshop-internal/' -e 's/CARTHOST/cart.roboshop-internal/' -e 's/DBHOST/my-sql.roboshop-internal/' -e 's/CARTENDPOINT/cart.roboshop-internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop-internal/' -e 's/REDIS_ENDPOINT/redis.roboshop-internal/' -e 's/REDIS_ENDPOINT/redis.roboshop-internal/'  -e 's/MONGO_ENDPOINT/mongodb.roboshop-internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop-internal/' systemd.service
     mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
     stat $?
 }
