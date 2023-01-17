@@ -28,8 +28,7 @@ stat $?
 #Create application user ( These are rabbitmq commands given by the developer, same can be seen in the official documentation of rabbitmq )
 
 sudo rabbitmqctl list_users | grep roboshop &>> $LOGFILE
-if [ $? -eq 0 ] ; then
-
+if [ $? -ne 0 ] ; then
     echo "Commands to execute: "
     rabbitmqctl add_user $APPUSER roboshop123 
     stat $?
