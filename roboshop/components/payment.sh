@@ -8,3 +8,4 @@ APPUSER="roboshop"
 
 source components/common.sh
 
+PYTHON

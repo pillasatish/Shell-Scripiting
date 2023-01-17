@@ -32,6 +32,24 @@ MAVEN() {
     START_SERVICE
 }
 
+PYTHON() {
+
+    echo -n "Install $COMPONENT: "
+    yum install python36 gcc python3-devel -y &>> $LOGFILE
+    stat $?
+
+    CREATE_USER
+
+    DOWNLAOD_AND_EXTRACT
+
+    echo -n "Install the dependicies: "
+    cd /home/roboshop/payment 
+    pip3 install -r requirements.txt
+    stat $?
+
+
+}
+
 NODEJS() {
     echo -n "Downlaoding nodejs repo"
     #rm /etc/yum.repos.d/nodesource* &>> $LOGFILE
