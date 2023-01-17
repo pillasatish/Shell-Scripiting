@@ -20,7 +20,10 @@ echo -n "Install $COMPONENT: "
 yum install rabbitmq-server -y &>> $LOGFILE
 stat $?
 
-START_SERVICE
+echo -n "Starting the $COMPONENT: "
+systemctl enable rabbitmq-server &>> $LOGFILE
+systemctl start rabbitmq-server &>> $LOGFILE
+stat $?
 
 #Create application user ( These are rabbitmq commands given by the developer, same can be seen in the official documentation of rabbitmq )
 
