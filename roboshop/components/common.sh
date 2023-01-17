@@ -44,7 +44,13 @@ PYTHON() {
 
     echo -n "Install the dependicies: "
     cd /home/roboshop/payment 
-    pip3 install -r requirements.txt
+    pip3 install -r requirements.txt &>> $LOGFILE
+    stat $?
+
+    echo -n "Updating the APP config: "
+    USER_ID=$(id -u roboshop)
+    GROUP_ID=$(id -g roboshop)
+    sed -i -e "/uid/ c uid = $USER_ID" -e "/gid/ c gid = $GROUP_ID" payment.ini
     stat $?
 
 
