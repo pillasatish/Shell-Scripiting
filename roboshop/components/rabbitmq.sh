@@ -27,10 +27,15 @@ stat $?
 
 #Create application user ( These are rabbitmq commands given by the developer, same can be seen in the official documentation of rabbitmq )
 
-echo "Commands to execute: "
-rabbitmqctl add_user $APPUSER roboshop123 
-stat $?
+sudo rabbitmqctl list_users | grep roboshop &>> $LOGFILE
+if [ $? -eq 0 ] ; then
 
-#rabbitmqctl set_user_tags $APPUSER administrator
-#rabbitmqctl set_permissions -p / $APPUSER ".*" ".*" ".*"
-#stat $?
+    echo "Commands to execute: "
+    rabbitmqctl add_user $APPUSER roboshop123 
+    stat $?
+ fi
+
+echo -n " Configuring the $APPUSER permission"
+rabbitmqctl set_user_tags $APPUSER administrator &>> $LOGFILE
+rabbitmqctl set_permissions -p / $APPUSER ".*" ".*" ".*" &>> $LOGFILE
+stat $?
