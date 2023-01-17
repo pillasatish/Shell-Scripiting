@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e #exit the code if any one of the below code is not executed
+COMPONENT=rabbitmq
+LOGFILE="/tmp/$COMPONENT.log"
+APPUSER="roboshop"
+
+
+source components/common.sh
+
+echo -n "Install the dependines: "
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+stat $?
+
+echo -n "steup the repositories: "
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>> $LOGFILE
+stat $?
+
+echo -n "Install $COMPONENT: "
+yum install rabbitmq-server -y
+stat $?
+
+START_SERVER
+
+#Create application user ( These are rabbitmq commands given by the developer, same can be seen in the official documentation of rabbitmq )
+
+echo "Commands to execute: "
+rabbitmqctl add_user $APPUSER roboshop123
+stat $?
+
+#rabbitmqctl set_user_tags $APPUSER administrator
+#rabbitmqctl set_permissions -p / $APPUSER ".*" ".*" ".*"
+#stat $?
