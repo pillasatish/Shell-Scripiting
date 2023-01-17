@@ -17,15 +17,15 @@ curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/sc
 stat $?
 
 echo -n "Install $COMPONENT: "
-yum install rabbitmq-server -y
+yum install rabbitmq-server -y &>> $LOGFILE
 stat $?
 
-START_SERVER
+START_SERVICE
 
 #Create application user ( These are rabbitmq commands given by the developer, same can be seen in the official documentation of rabbitmq )
 
 echo "Commands to execute: "
-rabbitmqctl add_user $APPUSER roboshop123
+rabbitmqctl add_user $APPUSER roboshop123 
 stat $?
 
 #rabbitmqctl set_user_tags $APPUSER administrator
