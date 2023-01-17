@@ -52,7 +52,10 @@ PYTHON() {
     GROUP_ID=$(id -g roboshop)
     sed -i -e "/uid/ c uid = $USER_ID" -e "/gid/ c gid = $GROUP_ID" $COMPONENT.ini
     stat $?
+    
+    CONFIG_SERVICE
 
+    START_SERVICE
 
 }
 
