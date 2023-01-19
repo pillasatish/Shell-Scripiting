@@ -25,8 +25,8 @@ create_server() {
     PRIVATE_IP=$(aws ec2 run-instances --security-group-ids $SGID --image-id  $AMI_ID --instance-type t2.micro --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}-${ENV}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
     # # Changing the IP Address and DNS Name as per the component
-    sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}-${ENV}/" route53.json > /tmp/record.json 
-    aws route53 change-resource-record-sets --hosted-zone-id Z09626353E72G6GNQ0R5A --change-batch file:///tmp/record.json | jq 
+    sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" route53.json > /tmp/record.json 
+    aws route53 change-resource-record-sets --hosted-zone-id Z05420742H8E9SRGP1ZZQ --change-batch file:///tmp/record.json | jq 
 }
 
 if [ "$1" == "all" ]; then 
