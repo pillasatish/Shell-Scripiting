@@ -7,14 +7,15 @@
 # Throw an error if the input is null 
 # Disclaimer: This script works on CENTOS7 Only
 
-if [ "$1" = "" ] | [ "$2" = "" ] ; then 
+#if [ "$1" = "" ] | [ "$2" = "" ] ; then 
+if [ "$1" = "" ] ; then
     echo -e "\e[31m \n Valid options are component -name or all and env \e[0m \n \e[33m Ex: \n\t bash create-server.sh payment dev \n \e[0m "
     exit 1
 fi 
 
 COMPONENT=$1
-ENV=$2
-SGID="sg-0bf27dd0bb525e6b9"
+#ENV=$2
+SGID="sg-009843ac1aa91e095"
 #AMI_ID="ami-052d9bac7baef4290"
 AMI_ID=$(aws ec2 describe-images  --filters "Name=name,Values=DevOps-LabImage-CentOS7" | jq '.Images[].ImageId' | sed -e 's/"//g')
 echo $AMI_ID 
